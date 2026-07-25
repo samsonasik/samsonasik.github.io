@@ -1,270 +1,1156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Abdul Malik Ikhsan - Resume</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EFEEF5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#110F1D" media="(prefers-color-scheme: dark)">
+<title>Abdul Malik Ikhsan — PHP Developer &amp; System Engineer</title>
+<meta name="description" content="Abdul Malik Ikhsan (samsonasik) — PHP developer and system engineer in Bandung Barat, Indonesia. Laminas Technical Steering Committee member, top Zend Framework and CodeIgniter 4 contributor.">
+<meta name="keywords" content="php, developer, remote, laminas, zend, mezzio, rector, codeigniter, apigility">
+<link rel="icon" href="samsonasik-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light dark;
 
-<!-- template from http://www.thomashardy.me.uk/free-responsive-html-css3-cv-template -->
-<meta name="keywords" content="web, developer, remote, php, laminas, zend, mezzio, expressive, apigilty, codeigniter" />
-<meta name="viewport" content="width=device-width"/>
-<meta name="description" content="The Resume of Abdul Malik Ikhsan."/>
-<meta charset="UTF-8">
+  /* text */
+  --ink:#17142B;
+  --ink-soft:#2A2545;
+  --slate:#5C5878;
+  --slate-light:#8B87A6;
 
-<link type="text/css" rel="stylesheet" href="style.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+  /* surfaces */
+  --paper:#EFEEF5;
+  --surface:#FBFBFD;
+  --surface-hi:#FFFFFF;
+  --nav-bg:rgba(239,238,245,.86);
 
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+  /* accent */
+  --php:#7A7EB8;
+  --php-deep:#454084;
+  --badge-bg:rgba(122,126,184,.13);
+  --sel-bg:#7A7EB8;
+  --sel-fg:#FFFFFF;
+
+  /* brand mark: the violet flips with the theme, the orange never does */
+  --mark:#6A50D8;
+  --mark-accent:#FF7A1F;
+
+  /* primary button */
+  --btn-bg:#17142B;
+  --btn-fg:#FBFBFD;
+  --btn-bg-hover:#454084;
+
+  /* always-dark zones: the code card and the footer read as one material
+     in both themes, so they get their own tokens rather than inverting */
+  --code-bg:#17142B;
+  --footer-bg:#17142B;
+  --footer-fg:#EFEEF5;
+
+  --line:rgba(23,20,43,.12);
+  --line-soft:rgba(23,20,43,.07);
+  --shadow:rgba(23,20,43,.5);
+  --shadow-soft:rgba(23,20,43,.14);
+
+  --syn-key:#A9A2EC;
+  --syn-cls:#F3C97F;
+  --syn-str:#8FD6A9;
+  --syn-com:#6E6A93;
+  --syn-pun:#B4B0CB;
+  --syn-num:#F09071;
+
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --f-sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  --pad:clamp(1.25rem,5vw,4rem);
+  --maxw:1120px;
+}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#E9E7F3;
+    --ink-soft:#CBC8DE;
+    --slate:#9C98B6;
+    --slate-light:#7C7896;
+
+    --paper:#110F1D;
+    --surface:#1A1729;
+    --surface-hi:#211D33;
+    --nav-bg:rgba(17,15,29,.86);
+
+    /* the accent has to climb, not sink, against a dark ground */
+    --php:#9497DC;
+    --php-deep:#B5B8F0;
+    --badge-bg:rgba(148,151,220,.16);
+    --sel-bg:#9497DC;
+    --sel-fg:#110F1D;
+
+    --mark:#B9A6FF;
+    --mark-accent:#FF7A1F;
+
+    --btn-bg:#B5B8F0;
+    --btn-fg:#110F1D;
+    --btn-bg-hover:#9497DC;
+
+    --code-bg:#0B0914;
+    --footer-bg:#0B0914;
+    --footer-fg:#E9E7F3;
+
+    --line:rgba(255,255,255,.13);
+    --line-soft:rgba(255,255,255,.07);
+    --shadow:rgba(0,0,0,.6);
+    --shadow-soft:rgba(0,0,0,.3);
+
+    --syn-com:#7B7799;
+  }
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{
+  margin:0;
+  overflow-x:hidden;
+  overflow-wrap:break-word;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--sel-bg);color:var(--sel-fg)}
+
+.wrap{
+  max-width:var(--maxw);
+  width:100%;
+  margin:0 auto;
+  padding-left:var(--pad);
+  padding-right:var(--pad);
+}
+/* grid items default to min-width:auto, which lets wide content
+   (the code card) push the whole row off-canvas */
+.hero-grid>*,.creds>*,.job>*,.edu>*,.skills>*{min-width:0}
+
+/* ── eyebrow / section label ───────────────────────── */
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--php-deep);
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  margin:0 0 2rem;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ── nav ───────────────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-in{
+  max-width:var(--maxw);margin:0 auto;
+  padding:.85rem var(--pad);
+  display:flex;align-items:center;gap:1.5rem;
+}
+.brand{
+  font-family:var(--f-mono);font-weight:600;font-size:.9rem;
+  letter-spacing:-.01em;text-decoration:none;
+  display:flex;align-items:center;gap:.55rem;
+}
+.brand-mark{
+  width:22px;height:22px;flex:none;
+  margin-left:-2px;          /* the glyph is inset in its box; pull it back to the optical edge */
+  overflow:visible;
+}
+.brand-mark rect{fill:var(--mark);transition:fill .2s}
+.brand-mark rect.accent{fill:var(--mark-accent)}
+.brand:hover .brand-mark rect{fill:var(--php-deep)}
+.brand:hover .brand-mark rect.accent{fill:var(--mark-accent)}
+.nav-links{margin-left:auto;display:flex;gap:1.6rem}
+.nav-links a{
+  font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em;
+  color:var(--slate);text-decoration:none;padding:.25rem 0;
+  border-bottom:1px solid transparent;transition:color .18s,border-color .18s;
+}
+.nav-links a:hover{color:var(--php-deep);border-bottom-color:var(--php)}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* ── hero ──────────────────────────────────────────── */
+.hero{padding-top:clamp(3rem,8vw,6rem);padding-bottom:clamp(2.5rem,6vw,4rem)}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,4rem);
+  align-items:center;
+}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}}
+
+.hero-kicker{
+  font-family:var(--f-mono);font-size:.75rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--slate);margin:0 0 1.1rem;
+}
+h1{
+  font-size:clamp(2rem,9vw,4.1rem);
+  padding-left:.04em;
+  margin-left:-.04em;
+  line-height:1.02;
+  letter-spacing:-.035em;
+  font-weight:700;
+  margin:0 0 1.1rem;
+}
+h1 .light{display:block;font-weight:400;color:var(--slate)}
+.hero-role{
+  font-family:var(--f-mono);
+  font-size:clamp(.9rem,2vw,1.02rem);
+  color:var(--php-deep);
+  margin:0 0 1.4rem;
+  font-weight:500;
+}
+.hero-lede{
+  font-size:1.06rem;color:var(--ink-soft);
+  max-width:38ch;margin:0 0 2rem;
+}
+.hero-lede strong{font-weight:600;color:var(--ink)}
+
+.contacts{display:flex;flex-wrap:wrap;gap:.6rem}
+.contact{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--f-mono);font-size:.8rem;
+  padding:.6rem .95rem;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--surface);
+  text-decoration:none;color:var(--ink-soft);
+  transition:border-color .18s,color .18s,transform .18s,background .18s;
+}
+.contact:hover{border-color:var(--php);color:var(--php-deep);transform:translateY(-1px)}
+.contact.primary{background:var(--btn-bg);color:var(--btn-fg);border-color:var(--btn-bg)}
+.contact.primary:hover{background:var(--btn-bg-hover);border-color:var(--btn-bg-hover);color:var(--btn-fg)}
+.contact svg{width:14px;height:14px;flex:none}
+
+/* ── code card (signature) ─────────────────────────── */
+.card{
+  background:var(--code-bg);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  max-width:100%;
+  box-shadow:0 1px 2px var(--shadow-soft),0 24px 48px -22px var(--shadow);
+}
+.card-bar{
+  display:flex;align-items:center;gap:.5rem;
+  padding:.7rem .95rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.card-bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.16)}
+.card-file{
+  margin-left:.5rem;font-family:var(--f-mono);font-size:.72rem;
+  color:var(--syn-com);letter-spacing:.02em;
+}
+.card-avatar{
+  margin-left:auto;width:26px;height:26px;border-radius:50%;
+  object-fit:cover;border:1px solid rgba(255,255,255,.2);
+  background:var(--php-deep);
+}
+.card pre{
+  margin:0;padding:1.35rem 1.4rem 1.6rem;
+  font-family:var(--f-mono);
+  font-size:clamp(.72rem,1.55vw,.82rem);
+  line-height:1.85;
+  color:var(--syn-pun);
+  overflow-x:auto;
+  tab-size:2;
+}
+.k{color:var(--syn-key)}
+.c{color:var(--syn-cls)}
+.s{color:var(--syn-str)}
+.m{color:var(--syn-com)}
+.n{color:var(--syn-num)}
+.v{color:#fff}
+.caret{
+  display:inline-block;width:7px;height:1.05em;
+  background:var(--php);vertical-align:-.18em;margin-left:2px;
+  animation:blink 1.15s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+/* ── standing / credentials ────────────────────────── */
+.standing{padding-top:clamp(2rem,5vw,3rem);padding-bottom:clamp(2rem,5vw,3rem)}
+.creds{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+}
+@media(max-width:820px){.creds{grid-template-columns:1fr}}
+.cred{
+  background:var(--surface);
+  padding:1.6rem 1.5rem;
+  text-decoration:none;
+  display:block;
+  transition:background .2s;
+}
+.cred:hover{background:var(--surface-hi)}
+.cred:hover .cred-rank{color:var(--php-deep)}
+.cred-rank{
+  font-family:var(--f-mono);
+  font-size:clamp(1.5rem,3.5vw,1.9rem);
+  font-weight:600;letter-spacing:-.03em;
+  color:var(--php);
+  transition:color .2s;
+  display:block;margin-bottom:.35rem;
+}
+.cred-title{font-weight:600;font-size:1rem;margin:0 0 .3rem}
+.cred-note{
+  font-family:var(--f-mono);font-size:.74rem;color:var(--slate-light);
+  display:flex;align-items:center;gap:.4rem;
+}
+.cred-note::after{
+  content:"↗";opacity:0;transform:translate(-3px,2px);
+  transition:opacity .2s,transform .2s;
+}
+.cred:hover .cred-note::after{opacity:1;transform:none}
+
+/* ── sections ──────────────────────────────────────── */
+section{scroll-margin-top:70px}
+.block{padding-top:clamp(2.5rem,6vw,4.5rem);padding-bottom:clamp(2.5rem,6vw,4.5rem)}
+.block + .block{border-top:1px solid var(--line-soft)}
+
+/* ── experience rail ───────────────────────────────── */
+.job{
+  display:grid;
+  grid-template-columns:112px 1fr;
+  gap:clamp(1rem,3vw,2.5rem);
+  padding:1.6rem 0;
+  border-top:1px solid var(--line-soft);
+}
+.job:first-of-type{border-top:1px solid var(--line)}
+@media(max-width:640px){
+  .job{grid-template-columns:1fr;gap:.5rem}
+}
+.job-year{
+  font-family:var(--f-mono);font-size:.82rem;font-weight:500;
+  color:var(--php-deep);padding-top:.2rem;white-space:nowrap;
+}
+.job-co{
+  font-size:1.12rem;font-weight:600;margin:0 0 .2rem;
+  letter-spacing:-.012em;
+}
+.job-meta{
+  font-family:var(--f-mono);font-size:.76rem;color:var(--slate-light);
+  margin:0 0 .7rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;
+}
+.tag-remote{
+  border:1px solid var(--line);border-radius:3px;
+  padding:.05rem .38rem;color:var(--php-deep);
+  letter-spacing:.06em;font-size:.68rem;text-transform:uppercase;
+}
+.job-desc{margin:0;color:var(--ink-soft);max-width:64ch}
+.job-list{
+  margin:.55rem 0 0;padding:0;list-style:none;
+  color:var(--ink-soft);max-width:64ch;
+}
+.job-list li{
+  position:relative;padding-left:1.15rem;margin-bottom:.3rem;
+}
+.job-list li::before{
+  content:"›";position:absolute;left:0;top:-1px;
+  color:var(--php);font-family:var(--f-mono);
+}
+.sub-list{margin:.35rem 0 .4rem;padding-left:1.1rem;color:var(--slate);font-size:.94rem}
+.sub-list li{margin-bottom:.12rem}
+
+details.more{margin-top:.6rem}
+details.more summary{
+  cursor:pointer;list-style:none;
+  font-family:var(--f-mono);font-size:.78rem;color:var(--php-deep);
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.35rem 0;
+}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+";font-weight:600}
+details.more[open] summary::before{content:"–"}
+details.more summary:hover{text-decoration:underline}
+
+/* ── repo showcase ─────────────────────────────────── */
+.repos{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(275px,1fr));
+  gap:1rem;
+}
+.repo{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:1.25rem 1.3rem 1.1rem;
+  text-decoration:none;
+  display:flex;flex-direction:column;
+  min-width:0;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.repo:hover{
+  border-color:var(--php);
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px -20px var(--shadow);
+}
+.repo-badge{
+  align-self:flex-start;
+  font-family:var(--f-mono);font-size:.63rem;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--php-deep);background:var(--badge-bg);
+  border-radius:4px;padding:.2rem .45rem;margin-bottom:.7rem;
+}
+.repo-name{
+  font-family:var(--f-mono);font-weight:600;font-size:.92rem;
+  color:var(--ink);margin:0 0 .45rem;letter-spacing:-.01em;
+}
+.repo-name .owner{color:var(--slate-light);font-weight:400}
+.repo-desc{
+  font-size:.9rem;line-height:1.55;color:var(--slate);
+  margin:0 0 1rem;flex:1;
+}
+.repo-foot{
+  display:flex;align-items:center;flex-wrap:wrap;gap:.35rem 1.1rem;
+  font-family:var(--f-mono);font-size:.72rem;color:var(--slate-light);
+  padding-top:.75rem;border-top:1px solid var(--line-soft);
+}
+.repo-foot .lang{display:inline-flex;align-items:center;gap:.4rem;color:var(--ink-soft)}
+.repo-foot .lang::before{
+  content:"";width:9px;height:9px;border-radius:50%;
+  background:var(--php);flex:none;
+}
+.repo-foot .stars{color:var(--php-deep);transition:color .3s}
+.repo-foot .stars.is-live{color:var(--php-deep);font-weight:500}
+.repo-foot .stars.is-stale{color:var(--slate-light);font-weight:400}
+
+/* ── skills ────────────────────────────────────────── */
+.skills{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1.75rem 2rem;
+}
+.skill-group h3{
+  font-family:var(--f-mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--slate-light);margin:0 0 .85rem;
+  padding-bottom:.55rem;border-bottom:1px solid var(--line-soft);
+}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{
+  font-family:var(--f-mono);font-size:.78rem;
+  background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:5px;padding:.32rem .6rem;color:var(--ink-soft);
+  transition:border-color .18s,color .18s;
+}
+.chip:hover{border-color:var(--php);color:var(--php-deep)}
+
+/* ── education ─────────────────────────────────────── */
+.edu{
+  display:grid;grid-template-columns:112px 1fr;
+  gap:clamp(1rem,3vw,2.5rem);
+  padding:1.3rem 0;border-top:1px solid var(--line-soft);
+}
+.edu:first-of-type{border-top:1px solid var(--line)}
+@media(max-width:640px){.edu{grid-template-columns:1fr;gap:.4rem}}
+.edu-school{font-weight:600;margin:0 0 .15rem}
+.edu-deg{margin:0;color:var(--slate);font-size:.95rem}
+
+/* ── footer ────────────────────────────────────────── */
+footer{
+  background:var(--footer-bg);color:var(--footer-fg);
+  border-top:1px solid var(--line);
+  padding:clamp(3rem,7vw,4.5rem) 0 2.5rem;
+  margin-top:clamp(2rem,6vw,4rem);
+}
+.foot-h{
+  font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:-.03em;
+  margin:0 0 1.6rem;font-weight:600;max-width:20ch;
+}
+footer .contact{
+  background:transparent;border-color:rgba(255,255,255,.22);color:var(--footer-fg);
+}
+footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126,184,.14)}
+.foot-base{
+  margin-top:3rem;padding-top:1.4rem;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-family:var(--f-mono);font-size:.72rem;color:var(--syn-com);
+  display:flex;flex-wrap:wrap;gap:.75rem;justify-content:space-between;
+}
+
+/* ── motion ────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.3,1)}
+:focus-visible{outline:2px solid var(--php-deep);outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .caret{animation:none}
+  *{transition-duration:.01ms!important}
+}
+
+.print-only{display:none}
+
+/* ── print ─────────────────────────────────────────── */
+@media print{
+  @page{margin:14mm 13mm}
+
+  /* A visitor reading in dark mode must still print black on white,
+     so the tokens are flattened to paper values before anything else. */
+  :root{
+    --ink:#000;--ink-soft:#000;--slate:#333;--slate-light:#555;
+    --paper:#fff;--surface:#fff;--surface-hi:#fff;--nav-bg:#fff;
+    --php:#666;--php-deep:#000;--badge-bg:transparent;
+    --btn-bg:#fff;--btn-fg:#000;
+    --code-bg:#fff;--footer-bg:#fff;--footer-fg:#000;
+    --line:#bbb;--line-soft:#ddd;
+    --shadow:transparent;--shadow-soft:transparent;
+  }
+
+  html,body{
+    background:#fff;color:#000;
+    font-size:9.5pt;line-height:1.45;
+  }
+
+  /* screen-only furniture */
+  .nav,.card,.contacts,.hero-kicker,.foot-h,.brand-mark{display:none!important}
+  .print-only{display:block}
+
+  .print-contacts{
+    font-family:var(--f-mono);font-size:8.5pt;
+    color:#000;margin:.5rem 0 0;
+  }
+
+  /* animation states must not survive onto paper */
+  .reveal,.reveal.in{opacity:1!important;transform:none!important}
+
+  .wrap{max-width:none;padding-left:0;padding-right:0}
+  .hero{padding-top:0;padding-bottom:8mm}
+  .hero-grid{display:block}
+  .standing,.block{padding-top:6mm;padding-bottom:0}
+  .block+.block{border-top:0}
+
+  h1{font-size:21pt;margin-bottom:.3rem;letter-spacing:-.02em}
+  h1 .light{display:inline;color:#000}
+  .hero-role{font-size:10pt;color:#000;margin-bottom:.45rem}
+  .hero-lede{font-size:10pt;color:#000;max-width:none;margin-bottom:0}
+
+  .eyebrow{
+    font-size:7.5pt;color:#000;margin-bottom:.6rem;
+    break-after:avoid;page-break-after:avoid;
+  }
+  .eyebrow::after{background:#000}
+
+  /* flatten every tinted surface to ink-free paper */
+  .creds{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:0;background:none;border:1px solid #bbb;border-radius:0;
+  }
+  .cred{background:none;padding:.5rem .7rem;border-right:1px solid #ddd;border-bottom:1px solid #ddd}
+  .cred-rank{font-size:12pt;color:#000;margin-bottom:.1rem}
+  .cred-title{font-size:9.5pt;margin-bottom:.1rem}
+  .cred-note{font-size:8pt;color:#444}
+  .cred-note::after{content:""}
+
+  .repos{grid-template-columns:repeat(2,1fr);gap:0}
+  .repo{
+    background:none;border:0;border-bottom:1px solid #e2e2e2;
+    border-radius:0;padding:.45rem .8rem .45rem 0;
+  }
+  .repo-badge{background:none;color:#000;padding:0;margin-bottom:.2rem;font-size:7pt}
+  .repo-name{font-size:9pt;margin-bottom:.15rem}
+  .repo-desc{font-size:8.5pt;color:#333;margin-bottom:.3rem}
+  .repo-foot{border-top:0;padding-top:0;font-size:8pt;color:#444;gap:.2rem .8rem}
+  .repo-foot .lang::before{background:#666}
+  .repo-foot .stars,.repo-foot .stars.is-live,.repo-foot .stars.is-stale{color:#000;font-weight:400}
+
+  .job,.edu{padding:.45rem 0;border-color:#e2e2e2}
+  .job{grid-template-columns:92px 1fr;gap:1rem}
+  .job-year{font-size:8.5pt;color:#000}
+  .job-co{font-size:10pt;margin-bottom:.1rem}
+  .job-meta{font-size:8pt;color:#444;margin-bottom:.25rem}
+  .tag-remote{border-color:#aaa;color:#000}
+  .job-desc,.job-list{font-size:9pt;color:#000;max-width:none}
+  .sub-list{font-size:8.5pt;color:#333}
+  .job-list li::before{color:#666}
+  details.more summary{display:none}
+
+  .chip{background:none;border-color:#ccc;font-size:8pt;padding:.12rem .35rem;color:#000}
+  .skills{gap:.9rem 1.5rem}
+  .skill-group h3{font-size:7.5pt;color:#000;margin-bottom:.4rem;padding-bottom:.25rem}
+
+  footer{
+    background:none;color:#000;
+    padding:4mm 0 0;margin-top:6mm;
+    border-top:1px solid #bbb;
+  }
+  .foot-base{
+    margin-top:0;padding-top:0;border-top:0;
+    font-size:8pt;color:#444;
+  }
+
+  /* keep related content on one sheet */
+  .job,.edu,.repo,.cred,.skill-group{break-inside:avoid;page-break-inside:avoid}
+
+  a{text-decoration:none;color:#000}
+}
+</style>
 </head>
-<body id="top">
-<div id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="headshot" class="quickFade">
-			<img src="./abdulmalikikhsan.jpg" alt="Abdul Malik Ikhsan" />
-		</div>
+<body>
 
-		<div id="name">
-			<h1 class="quickFade delayTwo">Abdul Malik Ikhsan</h1>
-			<h2 class="quickFade delayThree">PHP Developer, System Engineer</h2>
-		</div>
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false">
+        <rect x="44" y="16" width="12" height="24"/>
+        <rect x="44" y="60" width="12" height="16"/>
+        <rect x="14" y="44" width="26" height="12"/>
+        <rect x="60" y="44" width="18" height="12"/>
+        <rect class="accent" x="66" y="18" width="17" height="17" transform="rotate(45 74.5 26.5)"/>
+        <rect x="24" y="68" width="10" height="10" transform="rotate(45 29 73)"/>
+      </svg>
+      samsonasik
+    </a>
+    <div class="nav-links">
+      <a href="#opensource">open source</a>
+      <a href="#projects">projects</a>
+      <a href="#work">work</a>
+      <a href="#skills">skills</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
 
-		<div id="contactDetails" class="quickFade delayFour">
-			<ul>
-				<li><label title="email">e</label>: <a href="mailto:samsonasik@gmail.com">samsonasik@gmail.com</a></li>
-				<li><label title="blog">b</label>: <a href="https://samsonasik.wordpress.com">https://samsonasik.wordpress.com</a></li>
-				<li><label title="github">g</label>: <a href="https://github.com/samsonasik">https://github.com/samsonasik</a></li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
+<main id="top">
 
-	<div id="mainArea" class="quickFade delayFive">
+  <!-- HERO -->
+  <header class="hero wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <p class="hero-kicker">Bandung Barat, Indonesia · available remote</p>
+        <h1>Abdul Malik<span class="light">Ikhsan</span></h1>
+        <p class="hero-role">PHP Developer &amp; System Engineer</p>
+        <p class="hero-lede">
+          <strong>20 years</strong> of programming, 16 of them building web applications —
+          and a decade spent inside the frameworks other people build on.
+        </p>
+        <div class="contacts">
+          <a class="contact primary" href="mailto:samsonasik@gmail.com" aria-label="Email Abdul Malik Ikhsan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            email
+          </a>
+          <a class="contact" href="https://github.com/samsonasik" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.3 9.3 7.8 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6a11.4 11.4 0 0 0 7.8-10.8C23.4 5.6 18.3.5 12 .5Z"/></svg>
+            github
+          </a>
+          <a class="contact" href="https://samsonasik.wordpress.com" aria-label="Blog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg>
+            blog
+          </a>
+        </div>
+        <p class="print-only print-contacts">samsonasik@gmail.com · github.com/samsonasik · samsonasik.wordpress.com</p>
+      </div>
 
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>Personal Profile</h1>
-				</div>
+      <div class="reveal card" aria-hidden="true">
+        <div class="card-bar">
+          <i></i><i></i><i></i>
+          <span class="card-file">AbdulMalikIkhsan.php</span>
+          <img class="card-avatar" src="https://samsonasik.github.io/abdulmalikikhsan.jpg" alt="">
+        </div>
+<pre><span class="m">&lt;?php</span>
 
-				<div class="sectionContent">
-					<p>
-						I am a PHP developer and System Engineer live in Bandung Barat, Indonesia. I have 20 years of programming experience, with 16 of those years dedicated to developing web applications.
+<span class="k">declare</span>(<span class="v">strict_types</span>=<span class="n">1</span>);
 
-					<p>
-						From August 2012, I started contributing to Zend Framework (now Laminas), and finally became <a href="https://github.com/zendframework/zendframework/graphs/contributors">top 4 Zend Framework contributor</a>.
-					</p>
+<span class="k">final class</span> <span class="c">AbdulMalikIkhsan</span> <span class="k">implements</span> <span class="c">Contributor</span>
+{
+    <span class="k">public const</span> <span class="v">YEARS_WRITING_CODE</span> = <span class="n">20</span>;
+    <span class="k">public const</span> <span class="v">BASED_IN</span> = <span class="s">'Bandung Barat, ID'</span>;
 
-					<p>
-						From December 2016, I started contributing to CodeIgniter 4, and finally became <a href="https://github.com/codeigniter4/CodeIgniter4/graphs/contributors">top 3 CodeIgniter 4 contributor</a>.
-					</p>
+    <span class="m">/** @return list&lt;string&gt; */</span>
+    <span class="k">public function</span> <span class="c">maintains</span>(): <span class="k">array</span>
+    {
+        <span class="k">return</span> [
+            <span class="s">'boundwize'</span>,
+            <span class="s">'laminas'</span>,
+            <span class="s">'codeigniter4'</span>,
+            <span class="s">'rector'</span>,
+        ];
+    }
+}<span class="caret"></span></pre>
+      </div>
+    </div>
+  </header>
 
-					<p>From April 06, 2020, I started become <a href="https://getlaminas.org/blog/2020-04-07-tsc-meeting.html">a member of The Laminas Project Technical Steering Committee</a>.</p>
+  <!-- OPEN SOURCE STANDING -->
+  <section id="opensource" class="standing wrap">
+    <p class="eyebrow">Open source standing</p>
+    <div class="creds reveal">
+      <a class="cred" href="https://getlaminas.org/blog/2020-04-07-tsc-meeting.html">
+        <span class="cred-rank">TSC</span>
+        <p class="cred-title">Laminas Technical Steering Committee</p>
+        <p class="cred-note">Member since April 2020</p>
+      </a>
+      <a class="cred" href="https://github.com/boundwize">
+        <span class="cred-rank">ORG</span>
+        <p class="cred-title">Boundwize · founder &amp; maintainer</p>
+        <p class="cred-note">Awesome code, shaped by wisdom</p>
+      </a>
+      <a class="cred" href="https://github.com/zendframework/zendframework/graphs/contributors">
+        <span class="cred-rank">#4</span>
+        <p class="cred-title">Zend Framework contributor</p>
+        <p class="cred-note">Contributing since Aug 2012</p>
+      </a>
+      <a class="cred" href="https://github.com/codeigniter4/CodeIgniter4/graphs/contributors">
+        <span class="cred-rank">#3</span>
+        <p class="cred-title">CodeIgniter 4 contributor</p>
+        <p class="cred-note">Contributing since Dec 2016</p>
+      </a>
+    </div>
+  </section>
 
-					<p>
-						I also contributed to <a href="https://github.com/samsonasik">a ton of Open Source Software projects</a>.
-					</p>
-				</div>
-			</article>
-			<div class="clear"></div>
-		</section>
+  <!-- PROJECTS -->
+  <section id="projects" class="block wrap">
+    <p class="eyebrow">Packages &amp; projects</p>
+    <div class="repos reveal">
 
-		<section>
-			<div class="sectionTitle">
-				<h1>Selected Work Experience</h1>
-			</div>
+      <a class="repo" href="https://github.com/boundwize/structarmed">
+        <span class="repo-badge">Boundwize · flagship</span>
+        <p class="repo-name"><span class="owner">boundwize/</span>structarmed</p>
+        <p class="repo-desc">Configurable PHP architecture guards — define your layers and rules, then keep them enforced.</p>
+        <div class="repo-foot" data-repo="boundwize/structarmed" data-stars-fallback="45" data-forks-fallback="3">
+          <span class="lang">PHP</span>
+          <span class="stars" data-stars>★ 45</span>
+          <span data-forks>3 forks</span>
+        </div>
+      </a>
 
-			<div class="sectionContent">
+      <a class="repo" href="https://github.com/samsonasik/ci4-album">
+        <p class="repo-name"><span class="owner">samsonasik/</span>ci4-album</p>
+        <p class="repo-desc">CodeIgniter 4 Album module built with domain-driven design and tactical patterns.</p>
+        <div class="repo-foot" data-repo="samsonasik/ci4-album" data-stars-fallback="95" data-forks-fallback="21">
+          <span class="lang">PHP</span>
+          <span class="stars" data-stars>★ 95</span>
+          <span data-forks>21 forks</span>
+        </div>
+      </a>
 
-				<article>
-					<h2>Edukai s.r.o - Prague, Czechia (remote)</h2>
-					<p class="subDetails">2020</p>
-					<p>Developing Rector, adding new rules, fixing issues and bringing new ideas that are helpful to PHP community.</p>
-				</article>
+      <a class="repo" href="https://github.com/samsonasik/ErrorHeroModule">
+        <p class="repo-name"><span class="owner">samsonasik/</span>ErrorHeroModule</p>
+        <p class="repo-desc">Logs and handles PHP errors and exceptions across the request cycle in Laminas and Mezzio apps.</p>
+        <div class="repo-foot" data-repo="samsonasik/ErrorHeroModule" data-stars-fallback="51" data-forks-fallback="7">
+          <span class="lang">PHP</span>
+          <span class="stars" data-stars>★ 51</span>
+          <span data-forks>7 forks</span>
+        </div>
+      </a>
 
-				<article>
-					<h2>Kelahealth Inc - San Francisco, California (remote)</h2>
-					<p class="subDetails">2020</p>
-					<p>Migrate legacy FHIR API Expressive based application to Mezzio application and its Code Quality Assurance process.</p>
-				</article>
+      <a class="repo" href="https://github.com/samsonasik/SanSessionToolbar">
+        <p class="repo-name"><span class="owner">samsonasik/</span>SanSessionToolbar</p>
+        <p class="repo-desc">Session toolbar that plugs into Laminas Developer Tools.</p>
+        <div class="repo-foot" data-repo="samsonasik/SanSessionToolbar" data-stars-fallback="38" data-forks-fallback="13">
+          <span class="lang">PHP</span>
+          <span class="stars" data-stars>★ 38</span>
+          <span data-forks>13 forks</span>
+        </div>
+      </a>
 
-				<article>
-					<h2>Europe Copper Limited - London, UK (remote)</h2>
-					<p class="subDetails">2016 - 2019</p>
-					<p>Develop a cookware site system using Zend Framework 3 and Apigility.</p>
-				</article>
+      <a class="repo" href="https://github.com/samsonasik/ArrayLookup">
+        <p class="repo-name"><span class="owner">samsonasik/</span>ArrayLookup</p>
+        <p class="repo-desc">A fast lookup library for verifying and searching array and Traversable data.</p>
+        <div class="repo-foot" data-repo="samsonasik/ArrayLookup" data-stars-fallback="28" data-forks-fallback="3">
+          <span class="lang">PHP</span>
+          <span class="stars" data-stars>★ 28</span>
+          <span data-forks>3 forks</span>
+        </div>
+      </a>
 
-				<article>
-					<h2>Prism-Dm Limited - London, UK (remote)</h2>
-					<p class="subDetails">2014 - 2015</p>
-					<p class="top">Worked on projects :</p>
-					<ol class="numbers">
-						<li>Maintain existing Zend Framework 2 EPOS application. </li>
-						<li>Develop and maintain Prism CMS using Zend Framework 2.</li>
-						<li>Develop and maintain Prism Magic gift card API using Apigility.</li>
-					</ol>
-					<br />
-				</article>
+      <a class="repo" href="https://github.com/samsonasik/ForceHttpsModule">
+        <p class="repo-name"><span class="owner">samsonasik/</span>ForceHttpsModule</p>
+        <p class="repo-desc">Configurable module that forces HTTPS in Laminas MVC and Mezzio applications.</p>
+        <div class="repo-foot" data-repo="samsonasik/ForceHttpsModule" data-stars-fallback="17" data-forks-fallback="1">
+          <span class="lang">PHP</span>
+          <span class="stars" data-stars>★ 17</span>
+          <span data-forks>1 fork</span>
+        </div>
+      </a>
 
-				<article>
-					<h2>FSP Limited - Melbourne, Australia (remote)</h2>
-					<p class="subDetails">2013 - 2014</p>
-					<p>Consultancies for Zend Framework 2 Financial Service application.</p>
-				</article>
+    </div>
+  </section>
 
-				<article>
-					<h2>Diginiq Asia - Bandung, Indonesia</h2>
-					<p class="subDetails">2012 - 2013</p>
-					<p class="top">Worked on projects :</p>
-					<ol class="numbers">
-						<li>Heaven Records site.</li>
-						<li>Kuassa site.</li>
-					</ol>
-					<br />
-				</article>
+  <!-- WORK -->
+  <section id="work" class="block wrap">
+    <p class="eyebrow">Selected work · newest first</p>
 
-				<article>
-					<h2>PT Genesis Indo Jaya - Jakarta, Indonesia</h2>
-					<p class="subDetails">2011 - 2012</p>
-					<p class="top">Develop deal system using Zend Framework 1.</p>
-					<br />
-				</article>
+    <article class="job reveal">
+      <div class="job-year">2020</div>
+      <div>
+        <h2 class="job-co">Edukai s.r.o</h2>
+        <p class="job-meta">Prague, Czechia <span class="tag-remote">Remote</span></p>
+        <p class="job-desc">Developed Rector — writing new refactoring rules, fixing issues, and shaping ideas that landed back in the wider PHP community.</p>
+      </div>
+    </article>
 
-				<article>
-					<h2>Bandungreview - Bandung, Indonesia</h2>
-					<p class="subDetails">2010 - 2011</p>
-					<p class="top">Develop review site about Bandung using Zend Framework 1.</p>
-					<br />
-				</article>
+    <article class="job reveal">
+      <div class="job-year">2020</div>
+      <div>
+        <h2 class="job-co">Kelahealth Inc</h2>
+        <p class="job-meta">San Francisco, California <span class="tag-remote">Remote</span></p>
+        <p class="job-desc">Migrated a legacy FHIR API from Expressive to Mezzio, and rebuilt the code quality assurance process around it.</p>
+      </div>
+    </article>
 
-				<article>
-					<h2>Delta Waisa Technology - Bandung, Indonesia</h2>
-					<p class="subDetails">2009</p>
-					<p class="top">Worked on projects :</p>
-					<ol class="numbers">
-						<li>Develop Cabinet Meeting System of Ministry of State Secretariat of the Republic of Indonesia using Zend Framework 1.</li>
-						<li>Bug Fix Public Health Center Management Information System Application in Cilegon, Indonesia using Xaraya Framework.</li>
-					</ol>
-					<br />
-				</article>
+    <article class="job reveal">
+      <div class="job-year">2016 — 2019</div>
+      <div>
+        <h2 class="job-co">Europe Copper Limited</h2>
+        <p class="job-meta">London, UK <span class="tag-remote">Remote</span></p>
+        <p class="job-desc">Built a cookware retail system on Zend Framework 3 and Apigility.</p>
+      </div>
+    </article>
 
-				<article>
-					<h2>Chelonind Integrated - Bandung, Indonesia</h2>
-					<p class="subDetails">2008</p>
-					<p class="top">Worked on projects :</p>
-					<ol class="numbers">
-						<li>Bug Fix E-learning Ministry of Communication and Information Technology, Indonesia using Atutor CMS.</li>
-						<li>Develop Information Systems Control and Security Management of State Property Ministry of Communication and Information Technology using CodeIgniter Framework.</li>
-					</ol>
-					<br />
-				</article>
+    <article class="job reveal">
+      <div class="job-year">2014 — 2015</div>
+      <div>
+        <h2 class="job-co">Prism-Dm Limited</h2>
+        <p class="job-meta">London, UK <span class="tag-remote">Remote</span></p>
+        <ul class="job-list">
+          <li>Maintained an existing Zend Framework 2 EPOS application.</li>
+          <li>Built and maintained Prism CMS on Zend Framework 2.</li>
+          <li>Built and maintained the Prism Magic gift card API on Apigility.</li>
+        </ul>
+      </div>
+    </article>
 
-				<article>
-					<h2>Malaka 9 - Bandung, Indonesia</h2>
-					<p class="subDetails">2008</p>
-					<p class="top">Worked on projects :</p>
-					<ol class="numbers">
-						<li>Regional Monitoring Information System Tulang Bawang Lampung, Indonesia using Xaraya Framework.</li>
-						<li>Bug Fix Online Testing Application (Saundersreview) using Joomla CMS.</li>
-					</ol>
-					<br />
-				</article>
+    <article class="job reveal">
+      <div class="job-year">2013 — 2014</div>
+      <div>
+        <h2 class="job-co">FSP Limited</h2>
+        <p class="job-meta">Melbourne, Australia <span class="tag-remote">Remote</span></p>
+        <p class="job-desc">Consulted on a Zend Framework 2 financial services application.</p>
+      </div>
+    </article>
 
-				<article>
-					<h2>Freelance - Bandung, Indonesia</h2>
-					<p class="subDetails">2008 - now</p>
-					<p class="top">Worked on projects :</p>
-					<ol class="numbers">
-						<li>Develop Financial application for Wecon Consultant.</li>
-						<li>Develop Budget Monitoring and Evaluation System of Sukabumi district, Indonesia using CodeIgniter.</li>
-						<li>Develop Budget Monitoring and Evaluation System of Kuningan district, Indonesia using CodeIgniter.</li>
-						<li>Develop chess site for Telkom (TelkomOpen XI), Indonesia using Joomla CMS.</li>
-						<li>Bug Fix Reporting for Indonesian Citizens application of the Consulate General of the Republic of Indonesia for Guangzhou.</li>
-						<li>Bug Fix Registration for Judicial Commission Candidates application for the Directorate General of Human Rights.</li>
-						<li>Bug Fix Issuing Visa Republic of Indonesia application for Consulate General of the Republic of Indonesia for Guangzhou.</li>
-						<li>Develop some modules on Library information system (OPAC) Setwapres Republic of Indonesia using Zend Framework 1.</li>
-						<li>Develop BJB Syariah Bank site.</li>
-						<li>Develop http://crp.co.id site.</li>
-						<li>Redefined Hospital Information System on Bundamedik Healthcare System using Zend Framework 2.</li>
-						<li>Unit tests for Eye4web Private Message module for ZfcUser.Enact App.</li>
-						<li>Unit tests for Erostophia application.</li>
-						<li>Develop Potterworld site's headline news module.</li>
-						<li>PHP, OOP, Unit Test, Zend Framework 2, Laravel, and Build PHP Standard Projects Trainer : Offline and Online, some offline are at:
-							<ul>
-								<li type="a">Telkom University in Bandung, Indonesia.</li>
-								<li type="a">Ministry of Coordinator for Economic Affairs of the Republic of Indonesia.</li>
-								<li type="a">Sultan Agung Islamic University in Semarang District, Indonesia.</li>
-								<li type="a">Inisiatif Zakat Indonesia in Jakarta, Indonesia.</li>
-								<li type="a">Codepolitan in Bandung, Indonesia.</li>
-							</ul>
-						</li>
-					</ol>
-					<br />
-				</article>
+    <article class="job reveal">
+      <div class="job-year">2012 — 2013</div>
+      <div>
+        <h2 class="job-co">Diginiq Asia</h2>
+        <p class="job-meta">Bandung, Indonesia</p>
+        <p class="job-desc">Built the Heaven Records and Kuassa sites.</p>
+      </div>
+    </article>
 
-			</div>
-			<div class="clear"></div>
-		</section>
+    <article class="job reveal">
+      <div class="job-year">2011 — 2012</div>
+      <div>
+        <h2 class="job-co">PT Genesis Indo Jaya</h2>
+        <p class="job-meta">Jakarta, Indonesia</p>
+        <p class="job-desc">Built a deals platform on Zend Framework 1.</p>
+      </div>
+    </article>
 
+    <article class="job reveal">
+      <div class="job-year">2010 — 2011</div>
+      <div>
+        <h2 class="job-co">Bandungreview</h2>
+        <p class="job-meta">Bandung, Indonesia</p>
+        <p class="job-desc">Built a city review site for Bandung on Zend Framework 1.</p>
+      </div>
+    </article>
 
-		<section>
-			<div class="sectionTitle">
-				<h1>Key Skills</h1>
-			</div>
+    <article class="job reveal">
+      <div class="job-year">2009</div>
+      <div>
+        <h2 class="job-co">Delta Waisa Technology</h2>
+        <p class="job-meta">Bandung, Indonesia</p>
+        <ul class="job-list">
+          <li>Built the Cabinet Meeting System for the Ministry of State Secretariat of the Republic of Indonesia (Zend Framework 1).</li>
+          <li>Fixed the Public Health Center management information system in Cilegon (Xaraya).</li>
+        </ul>
+      </div>
+    </article>
 
-			<div class="sectionContent">
-				<ul class="keySkills">
-					<li>- PHP</li>
-					<li>- OOP</li>
-					<li>- Composer</li>
-					<li>- PostgreSQL</li>
-					<li>- MySQL</li>
-					<li>- SQL Server</li>
-					<li>- Zend Framework/Laminas</li>
-					<li>- Apigility/Laminas API Tools</li>
-					<li>- Expressive/Mezzio</li>
-					<li>- CodeIgniter</li>
-					<li>- Joomla</li>
-					<li>- WordPress</li>
-					<li>- TDD</li>
-					<li>- PHPUnit</li>
-					<li>- PHPspec</li>
-					<li>- Kahlan</li>
-					<li>- Codeception</li>
-					<li>- Continues Integration</li>
-					<li>- GIT</li>
-					<li>- HTML</li>
-					<li>- JavaScript</li>
-					<li>- jQuery</li>
-					<li>- macOS</li>
-					<li>- Linux</li>
-					<li>- Windows</li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
+    <article class="job reveal">
+      <div class="job-year">2008</div>
+      <div>
+        <h2 class="job-co">Chelonind Integrated</h2>
+        <p class="job-meta">Bandung, Indonesia</p>
+        <ul class="job-list">
+          <li>Fixed the e-learning platform for the Ministry of Communication and Information Technology (Atutor).</li>
+          <li>Built the State Property control and security management system for the same ministry (CodeIgniter).</li>
+        </ul>
+      </div>
+    </article>
 
-		<section>
-			<div class="sectionTitle">
-				<h1>Education</h1>
-			</div>
+    <article class="job reveal">
+      <div class="job-year">2008</div>
+      <div>
+        <h2 class="job-co">Malaka 9</h2>
+        <p class="job-meta">Bandung, Indonesia</p>
+        <ul class="job-list">
+          <li>Built the Regional Monitoring Information System for Tulang Bawang, Lampung (Xaraya).</li>
+          <li>Fixed the Saundersreview online testing application (Joomla).</li>
+        </ul>
+      </div>
+    </article>
 
-			<div class="sectionContent">
-				<article>
-					<h2>STMIK "AMIKBANDUNG"</h2>
-					<p class="subDetails">2009 - 2010</p>
-					<p>Bachelor, Informatics Engineering</p>
-				</article>
+    <article class="job reveal">
+      <div class="job-year">2008 — now</div>
+      <div>
+        <h2 class="job-co">Freelance</h2>
+        <p class="job-meta">Bandung, Indonesia · 15 projects</p>
+        <ul class="job-list">
+          <li>Financial application for Wecon Consultant.</li>
+          <li>Budget monitoring and evaluation systems for Sukabumi and Kuningan districts (CodeIgniter).</li>
+          <li>Rebuilt the hospital information system for Bundamedik Healthcare (Zend Framework 2).</li>
+        </ul>
+        <details class="more">
+          <summary>Show all 15 projects</summary>
+          <ul class="job-list">
+            <li>Chess site for Telkom (TelkomOpen XI) on Joomla.</li>
+            <li>Fixed the citizen reporting application for the Indonesian Consulate General in Guangzhou.</li>
+            <li>Fixed the Judicial Commission candidate registration application for the Directorate General of Human Rights.</li>
+            <li>Fixed the visa issuing application for the Indonesian Consulate General in Guangzhou.</li>
+            <li>Built modules for the Setwapres library information system, OPAC (Zend Framework 1).</li>
+            <li>Built the BJB Syariah Bank site.</li>
+            <li>Built crp.co.id.</li>
+            <li>Unit tests for the Eye4web private message module for ZfcUser (Enact App).</li>
+            <li>Unit tests for the Erostophia application.</li>
+            <li>Built the headline news module for the Potterworld site.</li>
+            <li>
+              Trainer — PHP, OOP, unit testing, Zend Framework 2, Laravel, and building standards-based PHP projects, online and on site at:
+              <ul class="sub-list">
+                <li>Telkom University, Bandung</li>
+                <li>Ministry of Coordinator for Economic Affairs of the Republic of Indonesia</li>
+                <li>Sultan Agung Islamic University, Semarang</li>
+                <li>Inisiatif Zakat Indonesia, Jakarta</li>
+                <li>Codepolitan, Bandung</li>
+              </ul>
+            </li>
+          </ul>
+        </details>
+      </div>
+    </article>
+  </section>
 
-				<article>
-					<h2>STMIK "AMIKBANDUNG"</h2>
-					<p class="subDetails">2004 - 2008</p>
-					<p>Diploma 3, Informatics Management</p>
-				</article>
-			</div>
-			<div class="clear"></div>
-		</section>
+  <!-- SKILLS -->
+  <section id="skills" class="block wrap">
+    <p class="eyebrow">Key skills</p>
+    <div class="skills reveal">
+      <div class="skill-group">
+        <h3>Language &amp; core</h3>
+        <div class="chips">
+          <span class="chip">PHP</span><span class="chip">OOP</span><span class="chip">Composer</span>
+          <span class="chip">HTML</span><span class="chip">JavaScript</span><span class="chip">jQuery</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Frameworks</h3>
+        <div class="chips">
+          <span class="chip">Laminas / Zend</span><span class="chip">Mezzio / Expressive</span>
+          <span class="chip">Laminas API Tools</span><span class="chip">CodeIgniter</span>
+          <span class="chip">Joomla</span><span class="chip">WordPress</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Testing &amp; quality</h3>
+        <div class="chips">
+          <span class="chip">TDD</span><span class="chip">PHPUnit</span><span class="chip">PHPSpec</span>
+          <span class="chip">Kahlan</span><span class="chip">Codeception</span>
+          <span class="chip">Continuous integration</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data</h3>
+        <div class="chips">
+          <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQL Server</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Platform</h3>
+        <div class="chips">
+          <span class="chip">Linux</span><span class="chip">macOS</span><span class="chip">Windows</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	</div>
-</div>
+  <!-- EDUCATION -->
+  <section id="education" class="block wrap">
+    <p class="eyebrow">Education</p>
+    <div class="reveal">
+      <div class="edu">
+        <div class="job-year">2009 — 2010</div>
+        <div>
+          <p class="edu-school">STMIK “AMIKBANDUNG”</p>
+          <p class="edu-deg">Bachelor, Informatics Engineering</p>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="job-year">2004 — 2008</div>
+        <div>
+          <p class="edu-school">STMIK “AMIKBANDUNG”</p>
+          <p class="edu-deg">Diploma 3, Informatics Management</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="foot-h">Open to remote PHP work and framework consulting.</h2>
+    <div class="contacts">
+      <a class="contact" href="mailto:samsonasik@gmail.com" aria-label="Email Abdul Malik Ikhsan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        email
+      </a>
+      <a class="contact" href="https://github.com/samsonasik" aria-label="GitHub profile">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.3 9.3 7.8 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6a11.4 11.4 0 0 0 7.8-10.8C23.4 5.6 18.3.5 12 .5Z"/></svg>
+        github
+      </a>
+      <a class="contact" href="https://samsonasik.wordpress.com" aria-label="Blog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg>
+        blog
+      </a>
+    </div>
+    <div class="foot-base">
+      <span>Abdul Malik Ikhsan · Bandung Barat, Indonesia</span>
+      <span>UTC+7</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  els.forEach(function(el, i){
+    el.style.transitionDelay = (i < 3 ? i * 90 : 0) + 'ms';
+    io.observe(el);
+  });
+})();
+/* ── Live star / fork counts ────────────────────────────────────────
+   Every card carries data-stars-fallback / data-forks-fallback. Those are
+   painted first, so the page is never blank or zero. The public GitHub API
+   is then asked for fresh numbers. Unauthenticated callers get 60 requests
+   per hour per IP; the moment we see a rate-limit response we stop asking
+   and leave every card on its fallback, flagged as approximate. */
+(function(){
+  var foots = document.querySelectorAll('.repo-foot[data-repo]');
+  if(!foots.length) return;
+
+  var STALE_NOTE = 'Approximate — live count unavailable right now';
+  var LIVE_NOTE  = 'Live count from the GitHub API';
+  var rateLimited = false;
+
+  function num(v){
+    var n = parseInt(v, 10);
+    return isNaN(n) ? null : n;
+  }
+  function stars(n){ return '★ ' + n.toLocaleString(); }
+  function forks(n){ return n.toLocaleString() + (n === 1 ? ' fork' : ' forks'); }
+
+  function paint(foot, starCount, forkCount, live){
+    var starEl = foot.querySelector('[data-stars]');
+    var forkEl = foot.querySelector('[data-forks]');
+
+    if(starEl && starCount !== null){
+      starEl.textContent = stars(starCount);
+      starEl.classList.toggle('is-live', !!live);
+      starEl.classList.toggle('is-stale', !live);
+      starEl.title = live ? LIVE_NOTE : STALE_NOTE;
+    }
+    if(forkEl && forkCount !== null){
+      forkEl.textContent = forks(forkCount);
+      forkEl.title = live ? LIVE_NOTE : STALE_NOTE;
+    }
+  }
+
+  function fallback(foot){
+    paint(foot,
+      num(foot.getAttribute('data-stars-fallback')),
+      num(foot.getAttribute('data-forks-fallback')),
+      false);
+  }
+
+  /* 1. Paint fallbacks immediately — this is the guaranteed state. */
+  Array.prototype.forEach.call(foots, fallback);
+
+  if(!('fetch' in window)) return;
+
+  /* 2. Try to upgrade each card to live data. */
+  Array.prototype.forEach.call(foots, function(foot){
+    if(rateLimited) return;
+
+    fetch('https://api.github.com/repos/' + foot.getAttribute('data-repo'), {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    })
+    .then(function(res){
+      /* 403 with no quota left, or 429, means the limit is spent.
+         Give up on the remaining cards rather than burning more requests. */
+      if(res.status === 429 ||
+        (res.status === 403 && res.headers.get('X-RateLimit-Remaining') === '0')){
+        rateLimited = true;
+        throw new Error('rate limited');
+      }
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(data){
+      var s = typeof data.stargazers_count === 'number' ? data.stargazers_count : null;
+      var f = typeof data.forks_count === 'number' ? data.forks_count : null;
+      if(s === null && f === null) return;
+      paint(foot, s, f, true);
+    })
+    .catch(function(){ fallback(foot); });
+  });
+})();
+/* Collapsed <details> would print as a stub, so expand them for the
+   print job and put them back exactly as the reader left them. */
+(function(){
+  var reopened = [];
+
+  function expand(){
+    reopened = [];
+    Array.prototype.forEach.call(document.querySelectorAll('details'), function(d){
+      if(!d.open){ d.open = true; reopened.push(d); }
+    });
+  }
+  function restore(){
+    reopened.forEach(function(d){ d.open = false; });
+    reopened = [];
+  }
+
+  window.addEventListener('beforeprint', expand);
+  window.addEventListener('afterprint', restore);
+
+  /* Safari and older WebKit fire no print events — use the media query. */
+  if(window.matchMedia){
+    var mq = window.matchMedia('print');
+    var onChange = function(e){ e.matches ? expand() : restore(); };
+    if(mq.addEventListener) mq.addEventListener('change', onChange);
+    else if(mq.addListener) mq.addListener(onChange);
+  }
+})();
+</script>
 </body>
 </html>
