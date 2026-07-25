@@ -201,21 +201,34 @@ img{max-width:100%;display:block}
 @media(max-width:720px){.nav-links{display:none}}
 
 /* ── hero ──────────────────────────────────────────── */
-.hero{padding-top:clamp(3rem,8vw,6rem);padding-bottom:clamp(2.5rem,6vw,4rem)}
+.hero{padding-top:clamp(1.25rem,3vw,2rem);padding-bottom:clamp(2.5rem,6vw,4rem)}
 .hero-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:clamp(2rem,5vw,4rem);
+  grid-template-columns:1fr auto;
+  gap:clamp(2rem,6vw,5rem);
   align-items:center;
 }
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}}
+.hero-photo{padding-right:clamp(0rem,4vw,3rem)}
+@media(max-width:720px){
+  .hero-grid{grid-template-columns:1fr;gap:1.5rem}
+  .hero-photo{order:-1;padding-right:0}
+  .hero-avatar{width:96px;height:96px}
+}
 
+.hero-avatar{
+  width:clamp(140px,18vw,200px);height:auto;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--surface-hi);
+  box-shadow:0 1px 2px var(--shadow-soft),0 20px 40px -18px var(--shadow);
+}
 .hero-kicker{
   font-family:var(--f-mono);font-size:.75rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--slate);margin:0 0 1.1rem;
 }
 h1{
-  font-size:clamp(2rem,9vw,4.1rem);
+  font-size:clamp(1.9rem,6vw,3.4rem);
   padding-left:.04em;
   margin-left:-.04em;
   line-height:1.02;
@@ -223,7 +236,7 @@ h1{
   font-weight:700;
   margin:0 0 1.1rem;
 }
-h1 .light{display:block;font-weight:400;color:var(--slate)}
+h1 .light{font-weight:400;color:var(--slate)}
 .hero-role{
   font-family:var(--f-mono);
   font-size:clamp(.9rem,2vw,1.02rem);
@@ -233,7 +246,7 @@ h1 .light{display:block;font-weight:400;color:var(--slate)}
 }
 .hero-lede{
   font-size:1.06rem;color:var(--ink-soft);
-  max-width:38ch;margin:0 0 2rem;
+  max-width:52ch;margin:0 0 1.6rem;
 }
 .hero-lede strong{font-weight:600;color:var(--ink)}
 
@@ -259,7 +272,9 @@ h1 .light{display:block;font-weight:400;color:var(--slate)}
   border:1px solid var(--line);
   border-radius:14px;
   overflow:hidden;
-  max-width:100%;
+  max-width:720px;
+  margin:0 auto;
+  width:100%;
   box-shadow:0 1px 2px var(--shadow-soft),0 24px 48px -22px var(--shadow);
 }
 .card-bar{
@@ -278,10 +293,10 @@ h1 .light{display:block;font-weight:400;color:var(--slate)}
   background:var(--php-deep);
 }
 .card pre{
-  margin:0;padding:1.35rem 1.4rem 1.6rem;
+  margin:0;padding:1.1rem 1.3rem 1.3rem;
   font-family:var(--f-mono);
   font-size:clamp(.72rem,1.55vw,.82rem);
-  line-height:1.85;
+  line-height:1.6;
   color:var(--syn-pun);
   overflow-x:auto;
   tab-size:2;
@@ -535,7 +550,7 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
   }
 
   /* screen-only furniture */
-  .nav,.card,.contacts,.hero-kicker,.foot-h,.brand-mark{display:none!important}
+  .nav,.card,.contacts,.hero-kicker,.hero-photo,.foot-h,.brand-mark{display:none!important}
   .print-only{display:block}
 
   .print-contacts{
@@ -651,10 +666,10 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
     <div class="hero-grid">
       <div class="reveal">
         <p class="hero-kicker">Bandung Barat, Indonesia · available remote</p>
-        <h1>Abdul Malik<span class="light">Ikhsan</span></h1>
+        <h1>Abdul Malik <span class="light">Ikhsan</span></h1>
         <p class="hero-role">PHP Developer &amp; System Engineer</p>
         <p class="hero-lede">
-          <strong>20 years</strong> of programming, 16 of them building web applications —
+          <strong><span id="years-code">20</span> years</strong> of programming, <span id="years-web">16</span> of them building web applications —
           and a decade spent inside the frameworks other people build on.
         </p>
         <div class="contacts">
@@ -674,32 +689,8 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
         <p class="print-only print-contacts">samsonasik@gmail.com · github.com/samsonasik · samsonasik.wordpress.com</p>
       </div>
 
-      <div class="reveal card" aria-hidden="true">
-        <div class="card-bar">
-          <i></i><i></i><i></i>
-          <span class="card-file">AbdulMalikIkhsan.php</span>
-          <img class="card-avatar" src="https://samsonasik.github.io/abdulmalikikhsan.jpg" alt="">
-        </div>
-<pre><span class="m">&lt;?php</span>
-
-<span class="k">declare</span>(<span class="v">strict_types</span>=<span class="n">1</span>);
-
-<span class="k">final class</span> <span class="c">AbdulMalikIkhsan</span> <span class="k">implements</span> <span class="c">Contributor</span>
-{
-    <span class="k">public const</span> <span class="v">YEARS_WRITING_CODE</span> = <span class="n">20</span>;
-    <span class="k">public const</span> <span class="v">BASED_IN</span> = <span class="s">'Bandung Barat, ID'</span>;
-
-    <span class="m">/** @return list&lt;string&gt; */</span>
-    <span class="k">public function</span> <span class="c">maintains</span>(): <span class="k">array</span>
-    {
-        <span class="k">return</span> [
-            <span class="s">'boundwize'</span>,
-            <span class="s">'laminas'</span>,
-            <span class="s">'codeigniter4'</span>,
-            <span class="s">'rector'</span>,
-        ];
-    }
-}<span class="caret"></span></pre>
+      <div class="reveal hero-photo">
+        <img class="hero-avatar" src="abdulmalikikhsan.jpg" alt="Abdul Malik Ikhsan" width="200" height="200">
       </div>
     </div>
   </header>
@@ -1045,6 +1036,15 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 </footer>
 
 <script>
+/* ── Years of experience ────────────────────────────────────────────
+   Programming since 2005, web applications since 2009. The HTML carries
+   the last hand-written numbers as fallback; this recomputes them so the
+   copy stays current without manual edits. */
+(function(){
+  var year = new Date().getFullYear();
+  document.getElementById('years-code').textContent = year - 2005;
+  document.getElementById('years-web').textContent = year - 2009;
+})();
 (function(){
   var els = document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
