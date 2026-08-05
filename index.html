@@ -396,7 +396,7 @@ section{scroll-margin-top:70px}
   content:"›";position:absolute;left:0;top:-1px;
   color:var(--php);font-family:var(--f-mono);
 }
-.sub-list{margin:.35rem 0 .4rem;padding-left:1.1rem;color:var(--slate);font-size:.94rem}
+.sub-list{margin:.35rem 0 .4rem;padding-left:1.1rem;color:var(--slate);font-size:.94rem;list-style:none}
 .sub-list li{margin-bottom:.12rem}
 
 details.more{margin-top:.6rem}
@@ -530,7 +530,10 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 
 /* ── print ─────────────────────────────────────────── */
 @media print{
-  @page{margin:14mm 13mm}
+  /* Zero page margins leave the browser no room to stamp its own
+     header/footer (title, URL, date) — the body carries the paper
+     margins instead. */
+  @page{margin:0}
 
   /* A visitor reading in dark mode must still print black on white,
      so the tokens are flattened to paper values before anything else. */
@@ -548,9 +551,10 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
     background:#fff;color:#000;
     font-size:9.5pt;line-height:1.45;
   }
+  body{padding:12mm 13mm}
 
   /* screen-only furniture */
-  .nav,.card,.contacts,.hero-kicker,.hero-photo,.foot-h,.brand-mark{display:none!important}
+  .nav,.card,.contacts,.hero-kicker,.hero-photo,.foot-h,.brand-mark,.repo-badge{display:none!important}
   .print-only{display:block}
 
   .print-contacts{
@@ -578,27 +582,35 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
   }
   .eyebrow::after{background:#000}
 
-  /* flatten every tinted surface to ink-free paper */
+  /* every card grid flattens into table rows on paper */
   .creds{
-    display:grid;grid-template-columns:repeat(2,1fr);
-    gap:0;background:none;border:1px solid #bbb;border-radius:0;
+    display:block;gap:0;background:none;
+    border:1px solid #bbb;border-radius:0;
   }
-  .cred{background:none;padding:.5rem .7rem;border-right:1px solid #ddd;border-bottom:1px solid #ddd}
-  .cred-rank{font-size:12pt;color:#000;margin-bottom:.1rem}
-  .cred-title{font-size:9.5pt;margin-bottom:.1rem}
+  .cred{
+    display:grid;grid-template-columns:52px 1fr auto;
+    gap:.9rem;align-items:baseline;
+    background:none;padding:.32rem .6rem;
+    border-bottom:1px solid #ddd;
+  }
+  .cred:last-child{border-bottom:0}
+  .cred-rank{font-size:9.5pt;color:#000;margin:0;font-weight:600}
+  .cred-title{font-size:9.5pt;margin:0}
   .cred-note{font-size:8pt;color:#444}
   .cred-note::after{content:""}
 
-  .repos{grid-template-columns:repeat(2,1fr);gap:0}
+  .repos{display:block;gap:0;border:1px solid #bbb}
   .repo{
-    background:none;border:0;border-bottom:1px solid #e2e2e2;
-    border-radius:0;padding:.45rem .8rem .45rem 0;
+    display:grid;grid-template-columns:178px 1fr 92px;
+    gap:.9rem;align-items:baseline;
+    background:none;border:0;border-bottom:1px solid #ddd;
+    border-radius:0;padding:.32rem .6rem;
   }
-  .repo-badge{background:none;color:#000;padding:0;margin-bottom:.2rem;font-size:7pt}
-  .repo-name{font-size:9pt;margin-bottom:.15rem}
-  .repo-desc{font-size:8.5pt;color:#333;margin-bottom:.3rem}
-  .repo-foot{border-top:0;padding-top:0;font-size:8pt;color:#444;gap:.2rem .8rem}
-  .repo-foot .lang::before{background:#666}
+  .repo:last-child{border-bottom:0}
+  .repo-name{font-size:8pt;margin:0}
+  .repo-desc{font-size:8.5pt;color:#333;margin:0}
+  .repo-foot{border-top:0;padding-top:0;font-size:8pt;color:#444;gap:.1rem .5rem}
+  .repo-foot .lang{display:none}
   .repo-foot .stars,.repo-foot .stars.is-live,.repo-foot .stars.is-stale{color:#000;font-weight:400}
 
   .job,.edu{padding:.45rem 0;border-color:#e2e2e2}
@@ -612,9 +624,20 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
   .job-list li::before{color:#666}
   details.more summary{display:none}
 
-  .chip{background:none;border-color:#ccc;font-size:8pt;padding:.12rem .35rem;color:#000}
-  .skills{gap:.9rem 1.5rem}
-  .skill-group h3{font-size:7.5pt;color:#000;margin-bottom:.4rem;padding-bottom:.25rem}
+  .skills{display:block;gap:0;border:1px solid #bbb}
+  .skill-group{
+    display:grid;grid-template-columns:150px 1fr;
+    gap:.9rem;align-items:baseline;
+    padding:.32rem .6rem;border-bottom:1px solid #ddd;
+  }
+  .skill-group:last-child{border-bottom:0}
+  .skill-group h3{font-size:7.5pt;color:#000;margin:0;padding:0;border-bottom:0}
+  .chips{display:block}
+  .chip{
+    display:inline;background:none;border:0;
+    font-size:8.5pt;padding:0;color:#000;
+  }
+  .chip:not(:last-child)::after{content:" · ";color:#999}
 
   footer{
     background:none;color:#000;
@@ -626,8 +649,12 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
     font-size:8pt;color:#444;
   }
 
-  /* keep related content on one sheet */
-  .job,.edu,.repo,.cred,.skill-group{break-inside:avoid;page-break-inside:avoid}
+  /* keep related content on one sheet; long jobs (freelance) may break,
+     but never right after their heading and never mid-bullet */
+  .edu,.repo,.cred,.skill-group{break-inside:avoid;page-break-inside:avoid}
+  .job-co,.job-meta{break-after:avoid;page-break-after:avoid}
+  .job-list li{break-inside:avoid;page-break-inside:avoid}
+  p,li{orphans:3;widows:3}
 
   a{text-decoration:none;color:#000}
 }
