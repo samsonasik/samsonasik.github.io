@@ -554,7 +554,7 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
   body{padding:12mm 13mm}
 
   /* screen-only furniture */
-  .nav,.card,.contacts,.hero-kicker,.hero-photo,.foot-h,.brand-mark,.repo-badge{display:none!important}
+  .nav,.card,.contacts,.hero-kicker,.foot-h,.brand-mark,.repo-badge{display:none!important}
   .print-only{display:block}
 
   .print-contacts{
@@ -567,7 +567,9 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 
   .wrap{max-width:none;padding-left:0;padding-right:0}
   .hero{padding-top:0;padding-bottom:8mm}
-  .hero-grid{display:block}
+  .hero-grid{display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:center}
+  .hero-photo{padding-right:0}
+  .hero-avatar{width:28mm;height:28mm;border:1px solid #bbb;box-shadow:none}
   .standing,.block{padding-top:6mm;padding-bottom:0}
   .block+.block{border-top:0}
 
