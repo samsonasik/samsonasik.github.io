@@ -531,8 +531,8 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 /* ── print ─────────────────────────────────────────── */
 @media print{
   /* Zero page margins leave the browser no room to stamp its own
-     header/footer (title, URL, date) — the body carries the paper
-     margins instead. */
+     header/footer (title, URL, date). Explicit print-page starts below
+     provide the repeated top spacing without enabling that margin area. */
   @page{margin:0}
 
   /* A visitor reading in dark mode must still print black on white,
@@ -628,6 +628,10 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 
   .job,.edu{padding:.45rem 0;border-color:#e2e2e2}
   .job{grid-template-columns:92px 1fr;gap:1rem}
+  .print-page-start{
+    break-before:page;page-break-before:always;
+    padding-top:10mm;border-top:0;
+  }
   .job-year{font-size:8.5pt;color:#000}
   .job-co{font-size:10pt;margin-bottom:.1rem}
   .job-meta{font-size:8pt;color:#444;margin-bottom:.25rem}
@@ -862,7 +866,7 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
       </div>
     </article>
 
-    <article class="job reveal">
+    <article class="job reveal print-page-start">
       <div class="job-year">2014 — 2015</div>
       <div>
         <h2 class="job-co">Prism-Dm Limited</h2>
@@ -947,7 +951,7 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
       </div>
     </article>
 
-    <article class="job reveal">
+    <article class="job reveal print-page-start">
       <div class="job-year">2005 — now</div>
       <div>
         <h2 class="job-co">Freelance</h2>
