@@ -567,9 +567,20 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 
   .wrap{max-width:none;padding-left:0;padding-right:0}
   .hero{padding-top:0;padding-bottom:8mm}
-  .hero-grid{display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:center}
-  .hero-photo{padding-right:0}
-  .hero-avatar{width:28mm;height:28mm;border:1px solid #bbb;box-shadow:none}
+  /* Firefox's print viewport also matches the narrow-screen media query,
+     which otherwise moves the photo before the copy. Give the paper layout
+     an explicit order and size, and avoid cyclic grid/image sizing. */
+  .hero-grid{
+    display:flex;gap:8mm;align-items:center;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  .hero-grid>div:first-child{flex:1 1 auto}
+  .hero-photo{order:0;flex:0 0 28mm;width:28mm;min-width:28mm;padding-right:0}
+  .hero-avatar{
+    display:block;width:28mm;height:28mm;max-width:none;
+    aspect-ratio:auto;object-fit:fill;
+    border:1px solid #bbb;box-shadow:none;
+  }
   .standing,.block{padding-top:6mm;padding-bottom:0}
   .block+.block{border-top:0}
 
@@ -653,7 +664,7 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 
   /* keep related content on one sheet; long jobs (freelance) may break,
      but never right after their heading and never mid-bullet */
-  .edu,.repo,.cred,.skill-group{break-inside:avoid;page-break-inside:avoid}
+  .job,.edu,.repo,.cred,.skill-group{break-inside:avoid;page-break-inside:avoid}
   .job-co,.job-meta{break-after:avoid;page-break-after:avoid}
   .job-list li{break-inside:avoid;page-break-inside:avoid}
   p,li{orphans:3;widows:3}
