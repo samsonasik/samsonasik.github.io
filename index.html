@@ -717,7 +717,7 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
         <p class="hero-role">Senior Software Engineer</p>
         <p class="hero-lede">
           I’ve been programming for <strong><span id="years-code">20</span> years</strong> and building web applications for
-          <span id="years-web">16</span> years. For more than a decade, I’ve also contributed to open source frameworks.
+          <span id="years-web">18</span> years. For more than <span id="decades-oss">a decade</span>, I’ve also contributed to open source frameworks.
         </p>
         <div class="contacts">
           <a class="contact primary" href="mailto:samsonasik@gmail.com" aria-label="Email Abdul Malik Ikhsan">
@@ -1084,13 +1084,20 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 
 <script>
 /* ── Years of experience ────────────────────────────────────────────
-   Programming since 2005, web applications since 2009. The HTML carries
-   the last hand-written numbers as fallback; this recomputes them so the
-   copy stays current without manual edits. */
+   Programming since 2005, web applications since 2008, open source
+   since 2012. The HTML carries the last hand-written numbers as
+   fallback; this recomputes them so the copy stays current without
+   manual edits. */
 (function(){
   var year = new Date().getFullYear();
   document.getElementById('years-code').textContent = year - 2005;
-  document.getElementById('years-web').textContent = year - 2009;
+  document.getElementById('years-web').textContent = year - 2008;
+  var decades = Math.floor((year - 2012) / 10);
+  if(decades > 1){
+    var words = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    var word = words[decades - 2];
+    document.getElementById('decades-oss').textContent = word ? word + ' decades' : 'a very long time';
+  }
 })();
 (function(){
   var els = document.querySelectorAll('.reveal');
