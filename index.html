@@ -716,8 +716,7 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
         <h1>Abdul Malik <span class="light">Ikhsan</span></h1>
         <p class="hero-role">Senior Software Engineer</p>
         <p class="hero-lede">
-          I started programming in 2004 and have been working professionally since 2005.
-          That’s <strong><span id="years-code">22</span> years</strong> of programming, <span id="years-web">18</span> of them building web applications, and more than <span id="decades-oss">a decade</span> contributing to open source frameworks.
+          I’ve spent <strong><span id="years-code">21</span> years</strong> programming professionally, <span id="years-web">18</span> of them building web applications, and more than <span id="decades-oss">a decade</span> contributing to open source frameworks.
         </p>
         <div class="contacts">
           <a class="contact primary" href="mailto:samsonasik@gmail.com" aria-label="Email Abdul Malik Ikhsan">
@@ -1084,13 +1083,13 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
 
 <script>
 /* ── Years of experience ────────────────────────────────────────────
-   Programming since 2004, web applications since 2008, open source
-   since 2012. The HTML carries the last hand-written numbers as
-   fallback; this recomputes them so the copy stays current without
-   manual edits. */
+   Professional programming since 2005, web applications since 2008,
+   open source since 2012. The HTML carries the last hand-written
+   numbers as fallback; this recomputes them so the copy stays current
+   without manual edits. */
 (function(){
   var year = new Date().getFullYear();
-  document.getElementById('years-code').textContent = year - 2004;
+  document.getElementById('years-code').textContent = year - 2005;
   document.getElementById('years-web').textContent = year - 2008;
   var decades = Math.floor((year - 2012) / 10);
   if(decades > 1){
