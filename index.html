@@ -269,6 +269,21 @@ h1 .light{font-weight:400;color:var(--slate)}
 .contact.primary:hover{background:var(--btn-bg-hover);border-color:var(--btn-bg-hover);color:var(--btn-fg)}
 .contact svg{width:14px;height:14px;flex:none}
 
+/* ── application modernization ────────────────────── */
+.modernization{padding-bottom:clamp(2rem,5vw,3rem)}
+.modernization-panel{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:clamp(1.35rem,3vw,2rem);
+}
+.modernization .eyebrow{margin-bottom:1.1rem}
+.modernization-copy{
+  font-size:1.06rem;color:var(--ink-soft);
+  margin:0 0 .65rem;
+}
+.modernization-note{color:var(--slate);margin:0}
+
 /* ── code card (signature) ─────────────────────────── */
 .card{
   background:var(--code-bg);
@@ -591,6 +606,10 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
   h1 .light{display:inline;color:#000}
   .hero-role{font-size:10pt;color:#000;margin-bottom:.45rem}
   .hero-lede{font-size:10pt;color:#000;max-width:none;margin-bottom:0}
+  .modernization{padding:0 0 6mm}
+  .modernization-panel{background:none;border:0;border-radius:0;padding:0}
+  .modernization-copy,.modernization-note{font-size:9.5pt;color:#000;max-width:none}
+  .modernization-copy{margin-bottom:.25rem}
 
   .eyebrow{
     font-size:7.5pt;color:#000;margin-bottom:.6rem;
@@ -740,6 +759,19 @@ footer .contact:hover{border-color:var(--php);color:#fff;background:rgba(122,126
       </div>
     </div>
   </header>
+
+  <!-- APPLICATION MODERNIZATION -->
+  <section class="modernization wrap" aria-labelledby="modernization-title">
+    <div class="modernization-panel reveal">
+      <p class="eyebrow" id="modernization-title">How I can help</p>
+      <p class="modernization-copy">
+        I can help teams improve and modernize existing applications, making them easier and safer to maintain. This may include improving the code structure and tests or handling dependency and framework upgrades.
+      </p>
+      <p class="modernization-note">
+        PHP is my main area of expertise, but the work does not have to be PHP.
+      </p>
+    </div>
+  </section>
 
   <!-- OPEN SOURCE STANDING -->
   <section id="opensource" class="standing wrap">
